@@ -1,0 +1,174 @@
+<div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                
+                <div class="h1-a">
+                    <h1>Leave Details</h1>
+                </div>
+                <br>        
+                <table class="table table-striped table-responsive ">
+                  <thead>
+                    <tr>
+                      <th>Type</th>
+                      <th>Total</th>
+                      <th>Available</th>
+                      <th>Cycle</th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                      
+                      <tr ng-repeat="it in ar">
+                        <td>{{it.type}}</td>
+                        <td>{{it.total}}</td>
+                        <td>{{it.available}}</td>
+                        <td>{{it.cycle}}</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+                <br>
+                <button class="btn btn-primary btn-block btn-rleave" ng-disabled="rleave" ng-click="init()">Request Leave</button>
+                <div ng-show="leaveForm">
+                    <br><br>
+                    <form ng-submit="submitApplication()">
+                        
+                       <div class="row " >
+                           <div class="col-sm-4">
+                         <div class="form-group">
+                         <label for="type">Type of Leave:</label>
+                            <select name="type" class="form-control" ng-model="app.type_of_leave" ng-options="t for t in tp"></select>
+                        </div>
+                           </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="from_date">From:</label>
+<!--                                <div class="date">-->
+                                    <div class="input-group input-append date" id="datePicker1">
+                                        <input required ng-model="app.from_date" type="text" class="form-control" name="form_date" readonly/>
+                                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
+<!--                                </div>-->
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="to_date">To:</label>
+<!--                                <div class="date">-->
+                                    <div class="input-group input-append date" id="datePicker2">
+                                        <input required ng-model="app.to_date" type="text" class="form-control" name="to_date" readonly/>
+                                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
+<!--                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                       <div class="form-group">
+                            <label for="name">Reason:</label>        
+                            <textarea required ng-model="app.reason" class="form-control" rows="4" id="message"></textarea>
+                       </div>
+                        
+<!--                        <div class="alert alert-danger text-center" ng-show="appSubmitErr" >
+                         {{appSubmitErrMsg}}
+                        </div> -->
+
+                        <div id="appSubmitErr_placeholder"></div>
+                        
+                        <div class="row">
+                            
+                            <div class="col-xs-6">
+                                <button type="submit" class="btn btn-success btn-block">Submit</button>
+                            </div>
+                            
+                            <div class="col-xs-6">
+                                <button type="reset" ng-click="reset()" class="btn btn-danger btn-block ">Reset</button>
+                            </div>
+                            
+                        </div>    
+                        
+                   </form>
+                </div>
+                
+                <br>
+<!--                <div class="alert alert-success alert-dismissable fade in text-center" ng-show="appSubmitSccess" >
+                    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                     {{appSubmitSccessMsg}}
+                </div>-->
+                <div id="appSubmitSuccess_placeholder"></div>
+                
+<!--                <div class="alert alert-success alert-dismissable fade in text-center" ng-show="repSubmitSccess" >
+                    <a href="" ng-show="done" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                     {{repSubmitSccessMsg}}
+                </div>-->
+                <div id="repSubmitSuccess_placeholder"></div>
+
+
+                <div ng-show="replacementForm">  
+                    
+                    <div class="h1-a">
+                        <h1 >Suggest Replacement Faculty</h1>
+                    </div>
+                    <p>between {{app.from_date}} and {{app.to_date}}</p>
+                    <br>
+                    
+                    <form ng-submit="submitRep()">
+                        
+                        <div class="row " >
+                           <div class="col-sm-4">
+                         <div class="form-group">
+                         <label for="type">Faculty:</label>
+                         <select name="type" class="form-control" ng-model="selectedFac" ng-options="t1.label for t1 in faculties"></select>
+                        </div>
+                           </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="from_date">From:</label>
+<!--                                <div class="date">-->
+                                    <div class="input-group input-append date" id="datePicker3">
+                                        <input required ng-model="rep.from_date" type="text" class="form-control" name="date" readonly/>
+                                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
+<!--                                </div>-->
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="from_date">To:</label>
+<!--                                <div class="date">-->
+                                    <div class="input-group input-append date" id="datePicker4">
+                                        <input required ng-model="rep.to_date" type="text" class="form-control" name="date" readonly/>
+                                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
+<!--                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                        
+                        
+<!--                        <div class="alert alert-danger text-center" ng-show="repSubmitErr" >
+                            {{repSubmitErrMsg}}
+                        </div> -->
+                        <div id="repSubmitErr_placeholder"></div>
+                        
+                        <div class="row">
+                            
+                            <div class="col-xs-6">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            </div>
+                            
+                            <div class="col-xs-6">
+                                <button type="reset" ng-click="resetRep()" class="btn btn-danger btn-block ">Reset</button>
+                            </div>
+                            
+                        </div> 
+                        <br>
+                        <div>
+                            <p style="display:inline;">After submitting all replacement faculties click here: </p>
+                            <button style="display:inline;" type="reset" ng-click="doneRep()" class="btn btn-success ">Done</button>
+                        </div>
+                    </form>
+                </div>
+                <br><br>
+              </div>  
+            </div>
+        </div>

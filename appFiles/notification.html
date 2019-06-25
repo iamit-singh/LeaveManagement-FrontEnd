@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div ng-show="isNew" class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+        
+            <div class="row">
+             <form class="form-inline">
+                 
+                 <div class="col-xs-5">
+                    <div class="form-group">
+                         <h3>Search: </h3> 
+                </div>
+                <div class="form-group">
+                        <input class="form-control" ng-model="qry">
+                </div>
+                </div>
+                 
+                 <div class="col-xs-7">
+                    
+                     <div class="form-group">
+                        <h3>Sort By: </h3>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control"  ng-model="arOr">
+                            <option selected value="application.apply_date">Apply Date</option>
+                          <option value="application.from_date">From Date</option>
+                          <option value="application.to_date">To Date</option>
+                          <option value="application.days">Days</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>
+                  <label class="radio-inline"><input type="radio"  ng-model="dir" name="direction">Ascending</label>
+                  <label class="radio-inline"><input type="radio"  ng-model="dir" name="direction" value="reverse">Descending</label>
+
+                        </h4>
+                    </div>
+                     
+                 </div>
+                
+            </form>
+        </div>    
+            
+            <br>
+            
+        <table class="table table-striped table-responsive">
+            <thead>
+                <tr>
+                <th>Apply date</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Days</th>
+                <th>Type of leave</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody style="height: 120px;overflow-y: auto;">
+                
+                <tr style="cursor: pointer;" class="ntfTable" ng-repeat="it in arr | filter: qry | orderBy: arOr:dir" ng-click='getDetail()'>
+                    <td>{{it.application.apply_date}}</td>
+                    <td>{{it.application.from_date}}</td>
+                    <td>{{it.application.to_date}}</td>
+                    <td>{{it.application.days}}</td>
+                    <td>{{it.application.type_of_leave}}</td>
+                    <td>{{it.application.status}}</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        </div>
+    </div>
+    
+    <div style="height: 70%;" ng-show="!isNew" class="text-center">
+        <div class="alert alert-info text-center">
+            <span>
+                No applications! <span class="glyphicon glyphicon-file"></span>
+            </span>
+        </div>
+    </div>
+</div>
+        
+
+

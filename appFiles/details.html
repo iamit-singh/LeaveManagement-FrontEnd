@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+            
+            <div style="float: right;"><h4 style="display: inline;">Status: </h4><h4 style="display: inline;" ng-bind="app.status"></h4></div>
+            
+            <div class="h1-a">
+                <h1>Application Details</h1>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 style="display: inline;">Type : </h4>
+                    <h3 style="display: inline;" ng-bind="app.type_of_leave"></h3>
+                </div>
+                <div class="col-sm-6">
+                    <h4 style="display: inline;">Days : </h4>
+                    <h3 style="display: inline;" ng-bind="app.days"></h3>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 style="display: inline;">From : </h4>
+                    <h3 style="display: inline;" ng-bind="app.from_date"></h3>
+                </div>
+                <div class="col-sm-6">
+                    <h4 style="display: inline;">To : </h4>
+                    <h3 style="display: inline;" ng-bind="app.to_date"></h3>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                
+                <div class="col-sm-2">
+                    <h4>Reason : </h4>
+                </div>
+                <div class="col-sm-10">
+                    <p style="font-size: 20px;margin-top: 5px;" ng-bind="app.reason"></p>
+                </div>
+                
+            </div>
+            
+            
+            <div class="h1-a">
+                <h1>Replacement Details</h1>
+            </div>
+            
+            <table ng-show="isRep" class="table table-striped ">
+                  <thead>
+                    <tr>
+                      <th>Employee ID</th>
+                      <th>From</th>
+                      <th>To</th>
+                      <th>Days</th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                      
+                      <tr ng-repeat="it in rep">
+                        <td>{{it.surrogate_eid}}</td>
+                        <td>{{it.from_date}}</td>
+                        <td>{{it.to_date}}</td>
+                        <td>{{it.days}}</td>
+                    </tr>
+
+                  </tbody>
+            </table>
+            <h5 ng-show="!isRep">No Replacement suggested</h5>
+            <br>
+            
+        </div>
+    </div>
+</div>

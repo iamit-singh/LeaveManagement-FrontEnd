@@ -1,0 +1,117 @@
+<br><br class="hidden-xs">
+        <div class="container-fluid">
+            
+<!--        <div class="alert alert-success fade in text-center" ng-show="signupsccess" >
+            <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             {{signupsccessmsg}}
+        </div>      -->
+
+        <div id = "sAlert_placeholder"></div>
+            
+        <div class="row center-block">
+            <div class="col-sm-offset-1 col-sm-3">
+                <div class="h1-a">
+                    <h1><span class="glyphicon glyphicon-log-in"></span> Log in</h1>
+                </div>
+                <br><br>
+                
+                <form ng-submit="loginUser()">
+                    <div class="form-group has-feedback">
+                      <label for="username">Username:</label>
+                      <input required type="text" name="username" class="form-control in-box" ng-model="user1.eid">
+                      <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                      <label for="pwd">Password:</label>
+                      <input required type="password" name="pwd" class="form-control in-box" ng-model="user1.password">
+                      <span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+                    </div>
+                    
+<!--                    <div class="alert alert-danger text-center" ng-show="loginerr">
+                        {{loginerrmsg}}
+                    </div>-->
+                       <div id = "eLAlert_placeholder"></div>
+                 
+                    <div class="row " >
+                        <div class="col-xs-offset-3 col-xs-6 col-xs-offset-3">
+                            <button type="submit" class="btn btn-success btn-block">Login</button>
+                        </div>
+                    </div>
+                  </form>
+            </div>
+            
+            
+            <div class="col-sm-offset-1 col-sm-5">
+                <div class="h1-a">
+                    <h1><span class="glyphicon glyphicon-user"></span> Sign up</h1>
+                </div>
+                <br><br>
+                <form ng-submit="signupUser()">
+                       <div class="row " >
+                        <div class="col-xs-6">
+                           <div class="form-group">
+                                <label for="Fname">First Name:</label>
+                                <input pattern="[a-zA-Z]+" ng-pattern-restrict required name="Fname" ng-model="user.fname" type="text" class="form-control in-box" id="fName">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label for="Lname">Last Name:</label>
+                                <input pattern="[a-zA-Z]+" ng-pattern-restrict required name="Lname" ng-model="user.lname" type="text" class="form-control in-box" id="lName">
+                            </div>
+                        </div>
+                    </div>
+                       <div class="form-group has-feedback">
+                         <label for="eid">EmployeeID:</label>
+                         <input required name="eid" ng-model="user.eid" placeholder="This will be your USERNAME" type="text" class="form-control in-box" id="eid">
+                          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+                       <div class="form-group">
+                         <label for="des">Designation:</label>
+                         <select class="form-control" ng-change="checkDes()" name="des" ng-model="user.designation" ng-options="d for d in des"></select>
+                        </div>
+                    
+                       <div class="form-group">
+                         <label for="dep">Department:</label>
+                         <select name="dep" class="form-control" ng-model="user.department" ng-disabled="is_RorD" ng-options="dep for dep in branch"></select>
+                        </div>
+                       <div class="form-group has-feedback">
+                         <label for="email">Email address:</label>
+                         <input required name="email" ng-model="user.email" type="email" class="form-control in-box" id="email">
+                        </div>
+                        <div class="form-group">
+                         <label for="MoNumber">Mobile No.:</label>
+                         <input ng-model="user.mno" type="number" class="form-control in-box" id="mno">
+                        </div>
+                        <div class="form-group has-feedback">
+                          <label for="pwd">Password:</label>
+                          <input required ng-model="user.password" type="password" class="form-control in-box" id="pwd">
+                          <span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                          <label for="pwd">Re-Enter Password:</label>
+                          <input required ng-model="repwd" type="password" class="form-control in-box" id="repwd">
+                          <span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+                        </div>
+                        
+<!--                        <div class="alert alert-danger text-center" ng-show="signuperr">
+                            {{signuperrmsg}}
+                        </div> -->
+                        
+                        <div id = "eSAlert_placeholder"></div>
+                    
+                       <div class="row text-center" >
+                            <div class="col-xs-6">
+                                <button type="submit" class="btn btn-primary ">Submit</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button ng-click="reset()" type="reset" class="btn btn-danger ">Clear</button> <!-- ng-click="reset()"-->
+                            </div>
+                        </div>
+                        
+                   </form>
+            </div>
+            
+        </div>
+        </div>
+        <br>

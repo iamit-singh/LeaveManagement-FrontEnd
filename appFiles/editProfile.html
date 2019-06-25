@@ -1,0 +1,55 @@
+<div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-offset-3 col-sm-6">
+                    
+                <div id = "sAlert_placeholder"></div>
+                
+                <div class="h1-a">
+                    <h1>Edit Profile</h1>
+                </div>
+                    <br>
+                    
+                <form ng-submit="edit()">
+                       <div class="row " >
+                        <div class="col-xs-6">
+                           <div class="form-group">
+                                <label for="Fname">First Name:</label>
+                                <input pattern="[a-zA-Z]+" ng-pattern-restrict required name="Fname" ng-model="fac.fname" type="text" class="form-control in-box" id="fName">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label for="Lname">Last Name:</label>
+                                <input pattern="[a-zA-Z]+" ng-pattern-restrict required name="Lname" ng-model="fac.lname" type="text" class="form-control in-box" id="lName">
+                            </div>
+                        </div>
+                    </div>
+                       <div class="form-group has-feedback">
+                         <label for="email">Email address:</label>
+                         <input required name="email" ng-model="fac.email" type="email" class="form-control in-box" id="email">
+                        </div>
+                        <div class="form-group">
+                         <label for="MoNumber">Mobile No.:</label>
+                         <input ng-model="fac.mno" type="number" class="form-control in-box" id="mno">
+                        </div>
+                        
+                        <div id = "eAlert_placeholder"></div>
+                    
+                       <div class="row text-center" >
+                            <div class="col-xs-4">
+                                <button type="submit" class="btn btn-primary ">Submit</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="button" ng-click="reset()" class="btn btn-danger ">Reset</button>
+                            </div>
+                           <div class="col-xs-4">
+                                <a href="#/profile" style="text-decoration: none;"><button type="button" class="btn btn-default ">Cancel</button></a>
+                            </div>
+                        </div>
+                        
+                   </form>
+                    
+                    </div>
+            </div>
+
+    </div>
